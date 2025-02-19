@@ -16,7 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
-using static SongCore.Data.ExtraSongData;
+using static SongCore.Data.SongData;
 
 namespace CustomCampaigns.Managers
 {
@@ -465,6 +465,7 @@ namespace CustomCampaigns.Managers
                                                         beatmapLevel,
                                                         gameplaySetupViewController.environmentOverrideSettings,
                                                         overrideColorScheme,
+                                                        true,
                                                         beatmapOverrideColorScheme,
                                                         gameplayModifiers,
                                                         playerSettings,
@@ -747,7 +748,7 @@ namespace CustomCampaigns.Managers
                     Plugin.logger.Debug("null beatmaplevel");
                 }
                 BeatmapKey beatmapKey = BeatmapUtils.GetMatchingBeatmapKey(beatmapLevel.levelID, missionData.beatmapCharacteristic, missionData.beatmapDifficulty);
-                DifficultyData difficultyData = Collections.RetrieveDifficultyData(beatmapLevel, beatmapKey);
+                DifficultyData difficultyData = Collections.GetCustomLevelSongDifficultyData(beatmapKey);
 
                 if (difficultyData == null)
                 {

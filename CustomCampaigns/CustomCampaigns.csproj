@@ -55,6 +55,11 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="BeatSaber.GameSettings">
+      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\BeatSaber.GameSettings.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="BeatSaberPlaylistsLib">
       <HintPath>$(BeatSaberDir)\Libs\BeatSaberPlaylistsLib.dll</HintPath>
       <Private>False</Private>

@@ -70,7 +70,7 @@ namespace CustomCampaigns.Campaign.Missions
                     Dictionary<string, LoadedSaveData> loadedBeatmapSaveData = Loader.CustomLevelLoader.GetField<Dictionary<string, LoadedSaveData>, CustomLevelLoader>("_loadedBeatmapSaveData");
                     LoadedSaveData loadedSaveData = Loader.CustomLevelLoader.GetField<Dictionary<string, LoadedSaveData>, CustomLevelLoader>("_loadedBeatmapSaveData")
                                                         .Values.First(x => CultureInfo.CurrentCulture.CompareInfo.IndexOf(x.customLevelFolderInfo.folderPath, songidSearch, CompareOptions.IgnoreCase) >= 0);
-                    missionHash = SongCore.Utilities.Hashing.GetCustomLevelHash(loadedSaveData.customLevelFolderInfo, loadedSaveData.standardLevelInfoSaveData);
+                    missionHash = SongCore.Utilities.Hashing.ComputeCustomLevelHash(loadedSaveData.customLevelFolderInfo, loadedSaveData.standardLevelInfoSaveData);
                 }
 
                 if (missionHash != "")
