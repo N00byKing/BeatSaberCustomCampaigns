@@ -571,7 +571,7 @@ namespace CustomCampaigns.Managers
             }
         }
 
-        private async void UpdateLevelParamsPanel()
+        private void UpdateLevelParamsPanel()
         {
             CustomMissionDataSO missionData = _missionLevelDetailViewController.missionNode.missionData as CustomMissionDataSO;
             Mission mission = missionData.mission;
@@ -583,12 +583,10 @@ namespace CustomCampaigns.Managers
             }
             else
             {
-                BeatmapKey beatmapKey = BeatmapUtils.GetMatchingBeatmapKey(mission.songid, missionData.beatmapCharacteristic, missionData.beatmapDifficulty);
                 BeatmapBasicData beatmapBasicData = beatmapLevel.GetDifficultyBeatmapData(missionData.beatmapCharacteristic, mission.difficulty);
 
-                BeatmapDataBasicInfo beatmapDataBasicInfo = await _beatmapDataLoader.LoadBasicBeatmapDataAsync(missionData.beatmapLevelData, beatmapKey);
-                _levelParamsPanel.notesCount = beatmapDataBasicInfo.cuttableNotesCount;
-                _levelParamsPanel.notesPerSecond = beatmapDataBasicInfo.cuttableNotesCount / beatmapLevel.songDuration;
+                // HACK: Renived notecount, notespersecond due to null exception
+                // When restored (using _beatmapDataLoader.LoadBasicBeatmapDataAsync), add async to func def
 
                 SetTime(beatmapLevel.songDuration);
                 SetNJS(beatmapBasicData.noteJumpMovementSpeed);
