@@ -128,13 +128,6 @@ namespace CustomCampaigns.Utils
             MemoryStream ms = new MemoryStream();
             originalImage.Save(ms, ImageFormat.Png);
             return ms;
-
-            if (originalImage.Width <= MAX_IMAGE_SIZE && originalImage.Height <= MAX_IMAGE_SIZE)
-            {
-                return originalStream;
-            }
-
-            return DownscaleImageInternal(originalImage);
         }
 
         private static Stream DownscaleImageInternal(Image image)
