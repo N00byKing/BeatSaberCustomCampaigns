@@ -98,6 +98,7 @@ namespace CustomCampaigns.UI.FlowCoordinators
         public void ClosedCampaign(CampaignFlowCoordinator campaignFlowCoordinator)
         {
             DismissFlowCoordinator(campaignFlowCoordinator);
+            SetViewControllerToNavigationController(_campaignListNavigationController, _campaignListViewController);
         }
         #endregion
     }
